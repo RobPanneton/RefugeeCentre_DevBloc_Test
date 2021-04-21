@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MARGINS } from "../Constants";
 
 import styled from "styled-components";
 

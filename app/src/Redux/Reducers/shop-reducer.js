@@ -7,6 +7,11 @@ const initialState = {
 
 export const shopReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "POPULATE_INVENTORY":
+      return {
+        ...state,
+        shopInv: action.payload,
+      };
     default:
       return state;
   }
