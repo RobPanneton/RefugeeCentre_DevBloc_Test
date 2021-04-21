@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div>ECOMMERCE !!</div>
+      <div>ECOMMERCE !!test</div>
     </>
   );
 }
