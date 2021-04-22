@@ -17,7 +17,6 @@ function App() {
     try {
       const res = await fetch("https://fakestoreapi.com/products");
       const json = await res.json();
-      console.log(json);
       dispatch(populateInventory(json));
     } catch (error) {
       console.error(error);

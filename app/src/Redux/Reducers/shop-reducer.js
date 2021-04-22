@@ -1,6 +1,7 @@
 const initialState = {
   shopInv: null,
   cart: {},
+  categorySelected: "All",
   loadStatus: "",
   shopIndex: 0,
 };
