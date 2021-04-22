@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { changeCategory } from "../../Redux/actions";
 
@@ -7,23 +7,40 @@ import styled from "styled-components";
 
 const CategoryList = () => {
   const dispatch = useDispatch();
+  const categoryFilter = useSelector((state) => state?.shop?.categorySelected);
 
   return (
     <Wrapper>
       <CategoryContainer>
-        <Category tabIndex="0" onClick={() => dispatch(changeCategory("All"))}>
+        <Category
+          tabIndex="0"
+          className={categoryFilter === "All" ? "selected" : null}
+          onClick={() => dispatch(changeCategory("All"))}
+        >
           All
         </Category>
-        <Category onClick={() => dispatch(changeCategory("electronics"))}>
+        <Category
+          className={categoryFilter === "electronics" ? "selected" : null}
+          onClick={() => dispatch(changeCategory("electronics"))}
+        >
           Electronics
         </Category>
-        <Category onClick={() => dispatch(changeCategory("jewelery"))}>
+        <Category
+          className={categoryFilter === "jewelery" ? "selected" : null}
+          onClick={() => dispatch(changeCategory("jewelery"))}
+        >
           Jewelery
         </Category>
-        <Category onClick={() => dispatch(changeCategory("men's clothing"))}>
+        <Category
+          className={categoryFilter === "men's clothing" ? "selected" : null}
+          onClick={() => dispatch(changeCategory("men's clothing"))}
+        >
           Men's Clothing
         </Category>
-        <Category onClick={() => dispatch(changeCategory("women's clothing"))}>
+        <Category
+          className={categoryFilter === "women's clothing" ? "selected" : null}
+          onClick={() => dispatch(changeCategory("women's clothing"))}
+        >
           Women's Clothing
         </Category>
       </CategoryContainer>
@@ -54,10 +71,8 @@ const Category = styled.button`
     cursor: pointer;
     background-color: darkgray;
   }
-  :active {
-    background-color: darkgray;
-  }
-  :focus {
+
+  &.selected {
     background-color: darkgray;
   }
 `;
