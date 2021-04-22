@@ -8,8 +8,12 @@ import cart from "../../assets/cart.svg";
 const NavBar = () => {
   return (
     <Wrapper>
-      <HomeLogo exact to="/"><h1>eSHOP</h1></HomeLogo>
-      <CartLogo><img src={cart} alt="cart icon"></img></CartLogo>
+      <HomeLogo exact to="/">
+        <h1>eSHOP</h1>
+      </HomeLogo>
+      <CartLogo to="checkout">
+        <img src={cart} alt="cart icon"></img>
+      </CartLogo>
     </Wrapper>
   );
 };
@@ -23,30 +27,29 @@ const Wrapper = styled.div`
 `;
 
 const HomeLogo = styled(NavLink)`
-height: 100%
-width: 150px;
-text-decoration: none;
-display: flex;
-justify-content: center;
-align-items: center;
-padding-left: 13px;
+  height: 100%;
+  width: 150px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 13px;
 
-h1{
-  font-size:32px;
-  font-weight: 800;
-  color: black;
-}
-`
-
-const CartLogo = styled.div`
-height: 100%;
-width: 52px;
-padding-right: 13px;
-text-decoration: none;
-display: flex;
-justify-content: center;
-align-items: center;
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: black;
+  }
 `;
 
+const CartLogo = styled(NavLink)`
+  height: 100%;
+  width: 52px;
+  padding-right: 13px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default NavBar;

@@ -7,6 +7,7 @@ import styled from "styled-components";
 import HomePage from "./Components/HomePage/HomePage";
 import NavBar from "./Components/NavBar/NavBar";
 import Shop from "./Components/Shop/Shop";
+import Checkout from "./Components/Checkout/Checkout";
 
 import { populateInventory } from "./Redux/actions";
 
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/shop">
             <Shop />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </Wrapper>
