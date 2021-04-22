@@ -13,17 +13,17 @@ import {
 const Checkout = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state?.shop?.cart);
-  const [cartTotal, setTotal] = useState(0);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if (Object.keys(cart).length) setTotal(() => calculateTotal(cart));
+    setTotal(() => calculateTotal(cart));
   }, [cart]);
 
   return (
     <Wrapper>
       <BackButton />
       <CheckoutContainer>
-        <h1>Checkout {cartTotal}</h1>
+        <h1>Checkout</h1>
         <CheckoutItemsDiv>
           {Object.keys(cart).length > 0 &&
             Object.keys(cart).map((item) => {
@@ -33,6 +33,7 @@ const Checkout = () => {
                     <button
                       onClick={() => {
                         dispatch(removeFromCart(item));
+                        setTotal(() => calculateTotal(cart));
                       }}
                     >
                       x
