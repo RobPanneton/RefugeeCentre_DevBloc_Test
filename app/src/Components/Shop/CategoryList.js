@@ -1,16 +1,31 @@
 import React from "react";
+import {useDispatch} from "react-redux";
+
+import {changeCategory} from "../../Redux/actions";
 
 import styled from "styled-components";
 
 const CategoryList = () => {
+  const dispatch = useDispatch();
+
+
+
   return (
     <Wrapper>
       <CategoryContainer>
-        <Category>All</Category>
-        <Category>Electronics</Category>
-        <Category>Jewelry</Category>
-        <Category>Men's Clothing</Category>
-        <Category>Women's Clothing</Category>
+        <Category
+        onClick={() => dispatch(changeCategory("All"))}
+        >All</Category>
+        <Category
+        onClick={() => dispatch(changeCategory("electronics"))}>Electronics</Category>
+        <Category
+        onClick={() => dispatch(changeCategory("jewelery"))}>Jewelery</Category>
+        <Category
+        onClick={() => dispatch(changeCategory("men's clothing"))}
+        >Men's Clothing</Category>
+        <Category       
+        onClick={() => dispatch(changeCategory("women's clothing"))}
+        >Women's Clothing</Category>
       </CategoryContainer>
     </Wrapper>
   );

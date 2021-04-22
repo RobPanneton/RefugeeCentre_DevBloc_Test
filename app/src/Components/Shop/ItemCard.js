@@ -1,7 +1,12 @@
 import React from "react";
+import {useDispatch} from "react-redux";
 import styled from "styled-components";
 
+import {addToCart} from "../../Redux/actions";
+
 const ItemCard = ({ item }) => {
+const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <ItemPicture>
@@ -10,7 +15,9 @@ const ItemCard = ({ item }) => {
       <div>
         <p1>{item.title}</p1>
         <p2>${item.price}</p2>
-        <button>Add to Cart</button>
+        <button onClick={() => {
+          dispatch(addToCart(item))
+        }}>Add to Cart</button>
       </div>
     </Wrapper>
   );
@@ -19,7 +26,6 @@ const ItemCard = ({ item }) => {
 const Wrapper = styled.div`
   width: 270px;
   height: 372px;
-  border: 2px solid lightgray;
   border-radius: 12px;
   margin-top: 48px;
 
@@ -47,7 +53,6 @@ const Wrapper = styled.div`
 const ItemPicture = styled.div`
   height: 63%;
   width: 100%;
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: center;

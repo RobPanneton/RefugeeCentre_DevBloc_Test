@@ -3,7 +3,7 @@ export const populateInventory = (item) => ({
   payload: item,
 });
 
-export const ChangeCategory = (category) => ({
+export const changeCategory = (category) => ({
   type: "CHANGE_CATEGORY",
   payload: category,
 });
