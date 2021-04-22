@@ -1,30 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
 import BackButton from "./BackButton";
 import { calculateTotal } from "../../utils";
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../../Redux/actions";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state?.shop?.cart);
   const [cartTotal, setTotal] = useState(0);
 
   useEffect(() => {
-    if (Object.keys(cart).length > 0) setTotal(() => calculateTotal(cart));
+    if (Object.keys(cart).length) setTotal(() => calculateTotal(cart));
   }, [cart]);
 
   return (
     <Wrapper>
       <BackButton />
       <CheckoutContainer>
-        <h1>Checkout</h1>
+        <h1>Checkout {cartTotal}</h1>
         <CheckoutItemsDiv>
           {Object.keys(cart).length > 0 &&
             Object.keys(cart).map((item) => {
               return (
                 <CheckoutItemCard>
                   <CancelDiv>
-                    <button>x</button>
+                    <button
+                      onClick={() => {
+                        dispatch(removeFromCart(item));
+                      }}
+                    >
+                      x
+                    </button>
                   </CancelDiv>
                   <PictureAndInfo>
                     <img src={cart[item].image} alt={cart[item.title]}></img>
@@ -34,8 +46,21 @@ const Checkout = () => {
                     <Quantity>
                       <span>Quantity:</span>
                       <span> {cart[item].quantity}</span>
-                      <button>+</button>
-                      <button>-</button>
+                      <button
+                        onClick={() => {
+                          dispatch(incrementQuantity(item));
+                        }}
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (cart[item].quantity > 1)
+                            dispatch(decrementQuantity(item));
+                        }}
+                      >
+                        -
+                      </button>
                     </Quantity>
                   </PictureAndInfo>
                 </CheckoutItemCard>
@@ -101,6 +126,21 @@ const CancelDiv = styled.div`
     font-size: 16px;
     text-align: center;
     line-height: 18px;
+
+    :active {
+      outline: none;
+      border: none;
+    }
+
+    :focus {
+      outline: none;
+      border: none;
+    }
+
+    ::selection {
+      outline: none;
+      border: none;
+    }
 
     span {
       text-align: center;

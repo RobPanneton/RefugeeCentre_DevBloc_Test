@@ -13,12 +13,12 @@ export const addToCart = (item) => ({
   payload: item,
 });
 
-export const IncrementQuantity = (item) => ({
+export const incrementQuantity = (item) => ({
   type: "INCREMENT_QUANTITY",
   payload: item,
 });
 
-export const DecrementQuantity = (item) => ({
+export const decrementQuantity = (item) => ({
   type: "DECREMENT_QUANTITY",
   payload: item,
 });
