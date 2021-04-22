@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
 import BackButton from "./BackButton";
+import CheckoutPricing from "./CheckoutPricing";
 import { calculateTotal } from "../../utils";
 import {
   removeFromCart,
@@ -68,6 +69,7 @@ const Checkout = () => {
               );
             })}
         </CheckoutItemsDiv>
+        <CheckoutPricing total={total} />
       </CheckoutContainer>
     </Wrapper>
   );
@@ -83,6 +85,7 @@ const CheckoutContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   h1 {
     padding: 0px 3px;
