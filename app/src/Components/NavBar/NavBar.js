@@ -1,24 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { MARGINS } from "../../Constants";
-import cart from "../../assets/cart.svg";
+import cartIcon from "../../assets/cart.svg";
 
 const NavBar = () => {
+  const userCart = useSelector((state) => state?.shop?.cart);
+
   return (
     <Wrapper>
       <HomeLogo exact to="/">
         <h1>eSHOP</h1>
       </HomeLogo>
       <CartLogo to="checkout">
-        <img src={cart} alt="cart icon"></img>
+        <img src={cartIcon} alt="cart icon"></img>
+        {Object.keys(userCart).length > 0 && (
+          <CartCounter>{Object.keys(userCart).length}</CartCounter>
+        )}
       </CartLogo>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  /* position: fixed; */
   height: ${MARGINS.navTop};
   width: 100%;
   border-bottom: 2px solid black;
@@ -43,6 +50,7 @@ const HomeLogo = styled(NavLink)`
 `;
 
 const CartLogo = styled(NavLink)`
+  position: relative;
   height: 100%;
   width: 52px;
   padding-right: 13px;
@@ -50,6 +58,23 @@ const CartLogo = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const CartCounter = styled.div`
+  border-radius: 50%;
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
+  width: 14px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border: 0.5px solid black;
+  font-weight: 600;
+  font-size: 12px;
 `;
 
 export default NavBar;

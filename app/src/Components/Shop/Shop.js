@@ -14,6 +14,7 @@ const Shop = () => {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
   min-height: 90vh;

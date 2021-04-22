@@ -13,11 +13,6 @@ export const addToCart = (item) => ({
   payload: item,
 });
 
-export const addToCartWithQuantity = (item, quantity) => ({
-  type: "ADD_TO_CART_WITH_QUANTITY",
-  payload: { item, quantity },
-});
-
 export const IncrementQuantity = (item) => ({
   type: "INCREMENT_QUANTITY",
   payload: item,
