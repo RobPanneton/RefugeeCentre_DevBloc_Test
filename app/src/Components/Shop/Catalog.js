@@ -7,7 +7,6 @@ import ItemCard from "./ItemCard";
 const Catalog = () => {
   const shopInv = useSelector((state) => state?.shop?.shopInv);
   const categoryFilter = useSelector((state) => state?.shop?.categorySelected);
-
   const [catalogDisplay, setCatalogDisplay] = useState([]);
 
   useEffect(async () => {

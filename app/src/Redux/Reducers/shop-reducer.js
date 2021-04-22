@@ -9,27 +9,30 @@ const initialState = {
 export const shopReducer = (state = initialState, action) => {
   switch (action.type) {
     case "POPULATE_INVENTORY":
+      const properInvPrices = action.payload.map((item) => {
+        return { ...item, price: item.price - (item.price % 1) + 0.99 };
+      });
       return {
         ...state,
-        shopInv: action.payload,
+        shopInv: properInvPrices,
       };
     case "ADD_TO_CART":
       const currentItem = state.cart[action.payload.title];
       return {
         ...state,
-        cart:{
+        cart: {
           ...state.cart,
-          [action.payload.title]:
-          {...action.payload,
-          quantity: currentItem ? currentItem.quantity + 1 : 1,
-          }
-        }
-      }
+          [action.payload.title]: {
+            ...action.payload,
+            quantity: currentItem ? currentItem.quantity + 1 : 1,
+          },
+        },
+      };
     case "CHANGE_CATEGORY":
       return {
         ...state,
         categorySelected: action.payload,
-      }
+      };
     default:
       return state;
   }
