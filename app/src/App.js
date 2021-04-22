@@ -4,7 +4,7 @@ import { GlobalStyle } from "./GlobalStyles";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import HomePage from "./Components/HomePage";
+import HomePage from "./Components/HomePage/HomePage";
 import NavBar from "./Components/NavBar/NavBar";
 import Shop from "./Components/Shop/Shop";
 

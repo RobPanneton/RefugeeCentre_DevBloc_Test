@@ -25,12 +25,6 @@ const Catalog = () => {
     return;
   }, [categoryFilter, shopInv]);
 
-  useEffect(() => {
-    console.log(catalogDisplay);
-    console.log(shopInv);
-    console.log(categoryFilter);
-  });
-
   return (
     <Wrapper>
       <h1>SHOP</h1>
