@@ -1,11 +1,11 @@
 import React from "react";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import {addToCart} from "../../Redux/actions";
+import { addToCart } from "../../Redux/actions";
 
 const ItemCard = ({ item }) => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>
@@ -15,9 +15,13 @@ const dispatch = useDispatch();
       <div>
         <p1>{item.title}</p1>
         <p2>${item.price}</p2>
-        <button onClick={() => {
-          dispatch(addToCart(item))
-        }}>Add to Cart</button>
+        <button
+          onClick={() => {
+            dispatch(addToCart(item));
+          }}
+        >
+          Add to Cart
+        </button>
       </div>
     </Wrapper>
   );
@@ -47,6 +51,9 @@ const Wrapper = styled.div`
 
   button {
     height: 42px;
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 

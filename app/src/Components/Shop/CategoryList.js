@@ -1,31 +1,31 @@
 import React from "react";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
-import {changeCategory} from "../../Redux/actions";
+import { changeCategory } from "../../Redux/actions";
 
 import styled from "styled-components";
 
 const CategoryList = () => {
   const dispatch = useDispatch();
 
-
-
   return (
     <Wrapper>
       <CategoryContainer>
-        <Category
-        onClick={() => dispatch(changeCategory("All"))}
-        >All</Category>
-        <Category
-        onClick={() => dispatch(changeCategory("electronics"))}>Electronics</Category>
-        <Category
-        onClick={() => dispatch(changeCategory("jewelery"))}>Jewelery</Category>
-        <Category
-        onClick={() => dispatch(changeCategory("men's clothing"))}
-        >Men's Clothing</Category>
-        <Category       
-        onClick={() => dispatch(changeCategory("women's clothing"))}
-        >Women's Clothing</Category>
+        <Category tabIndex="0" onClick={() => dispatch(changeCategory("All"))}>
+          All
+        </Category>
+        <Category onClick={() => dispatch(changeCategory("electronics"))}>
+          Electronics
+        </Category>
+        <Category onClick={() => dispatch(changeCategory("jewelery"))}>
+          Jewelery
+        </Category>
+        <Category onClick={() => dispatch(changeCategory("men's clothing"))}>
+          Men's Clothing
+        </Category>
+        <Category onClick={() => dispatch(changeCategory("women's clothing"))}>
+          Women's Clothing
+        </Category>
       </CategoryContainer>
     </Wrapper>
   );
@@ -38,7 +38,6 @@ const Wrapper = styled.div`
 `;
 
 const CategoryContainer = styled.div`
-  border: 1px black solid;
   padding: 48px 12px;
   height: 420px;
 `;
@@ -50,6 +49,17 @@ const Category = styled.button`
   font-size: 18px;
   width: 100%;
   height: 52px;
+
+  :hover {
+    cursor: pointer;
+    background-color: darkgray;
+  }
+  :active {
+    background-color: darkgray;
+  }
+  :focus {
+    background-color: darkgray;
+  }
 `;
 
 export default CategoryList;
