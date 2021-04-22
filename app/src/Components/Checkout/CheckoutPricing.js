@@ -7,11 +7,18 @@ const CheckoutPricing = ({ total }) => {
   const [qst, setQst] = useState(0);
   const [fullTotal, setFullTotal] = useState(0);
 
-  useEffect(() => {
-    setGst((total * 0.05).toFixed(2));
-    setQst((total * 0.09975).toFixed(2));
-    setFullTotal((Number(total) + Number(gst) + Number(qst) + 4.95).toFixed(2));
-  }, [total]);
+  useEffect(async () => {
+    await setGst((total * 0.05).toFixed(2));
+    await setQst((total * 0.09975).toFixed(2));
+    await setFullTotal((Number(total) + Number(gst) + Number(qst)).toFixed(2));
+
+    if (total === 0) {
+      await setGst(0);
+      await setQst(0);
+      await setFullTotal(0);
+    }
+    console.log(fullTotal);
+  }, [total, fullTotal]);
 
   return (
     <Wrapper>
@@ -30,7 +37,7 @@ const CheckoutPricing = ({ total }) => {
         </div>
         <div>
           <span>Shipping:</span>
-          <span>$4.95</span>
+          <span>Free!</span>
         </div>
         <div>
           <span>Total:</span>

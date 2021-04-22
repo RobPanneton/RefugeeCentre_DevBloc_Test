@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -17,6 +17,10 @@ const NavBar = () => {
     });
   }
 
+  if (Object.keys(userCart).length === 0 || !Object.keys(userCart).length) {
+    amountOfItems = 0;
+  }
+
   return (
     <Wrapper>
       <HomeLogo exact to="/">
@@ -24,9 +28,9 @@ const NavBar = () => {
       </HomeLogo>
       <CartLogo to="checkout">
         <img src={cartIcon} alt="cart icon"></img>
-        {Object.keys(userCart).length > 0 && (
+        {Object.keys(userCart).length > 0 ? (
           <CartCounter>{amountOfItems}</CartCounter>
-        )}
+        ) : null}
       </CartLogo>
     </Wrapper>
   );
