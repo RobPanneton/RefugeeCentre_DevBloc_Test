@@ -6,3 +6,14 @@ export const calculateTotal = (cart) => {
     }, 0)
     .toFixed(2);
 };
+
+export const initialData = {
+  firstName: null,
+  lastName: null,
+  email: null,
+  address1: null,
+  address2: null,
+  creditcard: null,
+  expiry: null,
+  ccv: null,
+};
