@@ -8,7 +8,7 @@ const CheckoutItems = ({ cart }) => {
       {Object.keys(cart).length > 0 &&
         Object.keys(cart).map((item) => {
           return (
-            <CheckoutItemCard>
+            <CheckoutItemCard key={item}>
               <CancelDiv>
                 <button>x</button>
               </CancelDiv>

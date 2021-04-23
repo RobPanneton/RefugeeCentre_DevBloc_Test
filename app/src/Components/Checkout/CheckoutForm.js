@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -14,10 +14,6 @@ const CheckoutForm = () => {
   const [formData, setFormData] = useState({
     ...initialData,
   });
-
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();

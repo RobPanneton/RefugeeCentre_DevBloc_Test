@@ -9,19 +9,20 @@ const Catalog = () => {
   const categoryFilter = useSelector((state) => state?.shop?.categorySelected);
   const [catalogDisplay, setCatalogDisplay] = useState([]);
 
-  useEffect(async () => {
-    if (categoryFilter === "All") {
-      await setCatalogDisplay(shopInv);
-    }
+  useEffect(() => {
+    const filterShop = async () => {
+      if (categoryFilter === "All") {
+        return await setCatalogDisplay(shopInv);
+      }
 
-    if (categoryFilter && categoryFilter !== "All") {
-      const filteredResults = shopInv.filter(
-        (item) => item.category === categoryFilter
-      );
-      await setCatalogDisplay(filteredResults);
-    }
-
-    return;
+      if (categoryFilter && categoryFilter !== "All") {
+        const filteredResults = shopInv.filter(
+          (item) => item.category === categoryFilter
+        );
+        return await setCatalogDisplay(filteredResults);
+      }
+    };
+    filterShop();
   }, [categoryFilter, shopInv]);
 
   return (
@@ -31,8 +32,8 @@ const Catalog = () => {
         <>
           {" "}
           <CatalogContainer>
-            {catalogDisplay.map((item) => {
-              return <ItemCard item={item} />;
+            {catalogDisplay.map((item, index) => {
+              return <ItemCard key={`${index}${item}`} item={item} />;
             })}
           </CatalogContainer>
         </>

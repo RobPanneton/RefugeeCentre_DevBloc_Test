@@ -7,17 +7,22 @@ const CheckoutPricing = ({ total }) => {
   const [qst, setQst] = useState(0);
   const [fullTotal, setFullTotal] = useState(0);
 
-  useEffect(async () => {
-    await setGst((total * 0.05).toFixed(2));
-    await setQst((total * 0.09975).toFixed(2));
-    await setFullTotal((Number(total) + Number(gst) + Number(qst)).toFixed(2));
+  useEffect(() => {
+    const getTotalPrice = async () => {
+      await setGst((total * 0.05).toFixed(2));
+      await setQst((total * 0.09975).toFixed(2));
+      await setFullTotal(
+        (Number(total) + Number(gst) + Number(qst)).toFixed(2)
+      );
 
-    if (total === 0) {
-      await setGst(0);
-      await setQst(0);
-      await setFullTotal(0);
-    }
-  }, [total, fullTotal]);
+      if (total === 0) {
+        await setGst(0);
+        await setQst(0);
+        await setFullTotal(0);
+      }
+    };
+    getTotalPrice();
+  }, [total, fullTotal, gst, qst]);
 
   return (
     <Wrapper>

@@ -16,20 +16,19 @@ import { populateInventory } from "./Redux/actions";
 function App() {
   const dispatch = useDispatch();
 
-  const GetInventory = async () => {
-    try {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const json = await res.json();
-      dispatch(populateInventory(json));
-    } catch (error) {
-      console.error(error);
-      return;
-    }
-  };
-
   useEffect(() => {
+    const GetInventory = async () => {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products");
+        const json = await res.json();
+        dispatch(populateInventory(json));
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+    };
     GetInventory();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
