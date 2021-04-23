@@ -1,12 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import styled from "styled-components";
+import { emptyCart } from "../../Redux/actions";
 
 const CheckoutForm = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
+    dispatch(emptyCart());
     history.push(`/confirmation`);
   };
 

@@ -76,6 +76,13 @@ export const shopReducer = (state = initialState, action) => {
           },
         };
       return { ...state };
+    // Empty the cart post-purchase
+    case "EMPTY_CART":
+      return {
+        ...state,
+        cart: {},
+      };
+
     default:
       return state;
   }
