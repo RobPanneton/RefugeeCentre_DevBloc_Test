@@ -104,16 +104,22 @@ const CheckoutItemsDiv = styled.div`
   justify-content: space-evenly;
 
   img {
+    padding: 0 3px;
     max-width: 100%;
     max-height: 150px;
+    min-height: 150px;
   }
 `;
 
 const CheckoutItemCard = styled.div`
+  margin: 23px 11px;
   width: 200px;
   height: 300px;
   border-radius: 12px;
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.54);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 const CancelDiv = styled.div`

@@ -9,14 +9,6 @@ import cartIcon from "../../assets/cart.svg";
 const NavBar = () => {
   const userCart = useSelector((state) => state?.shop?.cart);
 
-  let amountOfItems = 0;
-
-  if (Object.keys(userCart)) {
-    Object.keys(userCart).forEach((item) => {
-      amountOfItems += userCart[item].quantity;
-    });
-  }
-
   return (
     <Wrapper>
       <HomeLogo exact to="/">
@@ -25,7 +17,7 @@ const NavBar = () => {
       <CartLogo to="checkout">
         <img src={cartIcon} alt="cart icon"></img>
         {Object.keys(userCart).length > 0 && (
-          <CartCounter>{amountOfItems}</CartCounter>
+          <CartCounter>{Object.keys(userCart).length}</CartCounter>
         )}
       </CartLogo>
     </Wrapper>
