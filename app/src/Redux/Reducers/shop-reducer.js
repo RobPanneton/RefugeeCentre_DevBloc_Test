@@ -41,15 +41,12 @@ export const shopReducer = (state = initialState, action) => {
     case "REMOVE_FROM_CART":
       const stateRemovalCopy = { ...state };
       delete stateRemovalCopy.cart[action.payload];
-      console.log(stateRemovalCopy);
       return {
         ...stateRemovalCopy,
       };
 
     // Increase Quantity (+1)
     case "INCREMENT_QUANTITY":
-      const targetItemIncr = state.cart[action.payload];
-
       return {
         ...state,
         cart: {

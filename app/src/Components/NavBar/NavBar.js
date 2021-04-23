@@ -11,14 +11,10 @@ const NavBar = () => {
 
   let amountOfItems = 0;
 
-  if (Object.keys(userCart).length > 0) {
+  if (Object.keys(userCart)) {
     Object.keys(userCart).forEach((item) => {
       amountOfItems += userCart[item].quantity;
     });
-  }
-
-  if (Object.keys(userCart).length === 0 || !Object.keys(userCart).length) {
-    amountOfItems = 0;
   }
 
   return (
@@ -28,9 +24,9 @@ const NavBar = () => {
       </HomeLogo>
       <CartLogo to="checkout">
         <img src={cartIcon} alt="cart icon"></img>
-        {Object.keys(userCart).length > 0 ? (
+        {Object.keys(userCart).length > 0 && (
           <CartCounter>{amountOfItems}</CartCounter>
-        ) : null}
+        )}
       </CartLogo>
     </Wrapper>
   );

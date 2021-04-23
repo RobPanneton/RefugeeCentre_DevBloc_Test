@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import BackButton from "./BackButton";
 import CheckoutPricing from "./CheckoutPricing";
+import CheckoutForm from "./CheckoutForm";
 import { calculateTotal } from "../../utils";
 import {
   removeFromCart,
@@ -70,6 +71,7 @@ const Checkout = () => {
             })}
         </CheckoutItemsDiv>
         <CheckoutPricing total={total} />
+        <CheckoutForm />
       </CheckoutContainer>
     </Wrapper>
   );

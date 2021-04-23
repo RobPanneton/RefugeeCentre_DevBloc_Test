@@ -17,7 +17,6 @@ const CheckoutPricing = ({ total }) => {
       await setQst(0);
       await setFullTotal(0);
     }
-    console.log(fullTotal);
   }, [total, fullTotal]);
 
   return (
@@ -52,7 +51,8 @@ const Wrapper = styled.div`
   margin-top: 52px;
   padding: 32px 52px;
   width: 50%;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  border-radius: 7px;
 `;
 
 const PricingContainer = styled.div`
