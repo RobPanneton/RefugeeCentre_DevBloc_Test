@@ -64,7 +64,7 @@ const CheckoutDiv = styled.div`
 `;
 
 const CheckoutLink = styled(NavLink)`
-  padding-right: 23px;
+  margin-right: 23px;
   text-decoration: none;
   color: black;
   span {

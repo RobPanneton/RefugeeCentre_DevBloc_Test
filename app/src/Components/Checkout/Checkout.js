@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
@@ -27,7 +28,7 @@ const Checkout = () => {
       <CheckoutContainer>
         <h1>Checkout</h1>
         <CheckoutItemsDiv>
-          {Object.keys(cart).length > 0 &&
+          {Object.keys(cart).length > 0 ? (
             Object.keys(cart).map((item) => {
               return (
                 <CheckoutItemCard>
@@ -68,7 +69,13 @@ const Checkout = () => {
                   </PictureAndInfo>
                 </CheckoutItemCard>
               );
-            })}
+            })
+          ) : (
+            <div>
+              Your cart is empty!{" "}
+              <ReturnLink to="/shop">Return to the shop.</ReturnLink>
+            </div>
+          )}
         </CheckoutItemsDiv>
         <CheckoutPricing total={total} />
         <CheckoutForm />
@@ -218,6 +225,11 @@ const Quantity = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+const ReturnLink = styled(Link)`
+  font-weight: 600;
+  color: black;
 `;
 
 export default Checkout;
