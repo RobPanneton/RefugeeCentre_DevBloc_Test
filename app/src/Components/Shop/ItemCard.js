@@ -13,8 +13,8 @@ const ItemCard = ({ item }) => {
         <img src={item.image} alt={item.title} />
       </ItemPicture>
       <div>
-        <p1>{item.title}</p1>
-        <p2>${item.price}</p2>
+        <p>{item.title}</p>
+        <p>${item.price}</p>
         <button
           onClick={() => {
             dispatch(addToCart(item));
@@ -40,12 +40,11 @@ const Wrapper = styled.div`
     justify-content: space-between;
     flex-direction: column;
   }
-  p1 {
+  p {
     padding: 0px 8px;
     font-size: 14px;
   }
-  p2 {
-    padding: 0px 8px;
+  p:nth-of-type(2) {
     font-weight: bold;
   }
 
