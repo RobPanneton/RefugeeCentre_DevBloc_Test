@@ -13,6 +13,8 @@ Build an e-commerce web application using React.js, here are the parameters:
 
 You can use any free hosting and database, there are a variety of options online.
 
+** Made in 3 days **
+
 ## Tech
 
 - Front-End: React.js, Redux
