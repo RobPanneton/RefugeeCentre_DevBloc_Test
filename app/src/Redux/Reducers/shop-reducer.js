@@ -43,6 +43,9 @@ export const shopReducer = (state = initialState, action) => {
       delete stateRemovalCopy.cart[action.payload];
       return {
         ...stateRemovalCopy,
+        cart: {
+          ...stateRemovalCopy.cart,
+        },
       };
 
     // Increase Quantity (+1)

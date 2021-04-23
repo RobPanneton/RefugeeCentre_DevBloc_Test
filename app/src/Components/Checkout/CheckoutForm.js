@@ -77,6 +77,12 @@ const FilloutForm = styled.form`
 
   button {
     margin-top: 17px;
+    width: 100%;
+    height: 32px;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1px;
   }
 
   .address {
