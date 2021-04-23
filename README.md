@@ -40,4 +40,7 @@ You can use any free hosting and database, there are a variety of options online
 
 # Gif Demonstration
 
-![Gif Demo](./assets/ecomm-demo1.gif)
+![Gif Demo](https://github.com/RobPanneton/RefugeeCentre_DevBloc_Test/blob/main/assets/ecomm-demo.gif)
+![Gif test](https://github.com/RobPanneton/RefugeeCentre_DevBloc_Test/blob/main/assets/ecomm-demo.gif)
+
+<img src="https://github.com/RobPanneton/RefugeeCentre_DevBloc_Test/blob/main/assets/ecomm-demo.gif" alt="demo gif" width="600px">
