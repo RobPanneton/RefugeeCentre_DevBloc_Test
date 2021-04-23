@@ -14,18 +14,22 @@ const NavBar = () => {
       <HomeLogo exact to="/">
         <h1>eSHOP</h1>
       </HomeLogo>
-      <CartLogo to="checkout">
-        <img src={cartIcon} alt="cart icon"></img>
-        {Object.keys(userCart).length > 0 && (
-          <CartCounter>{Object.keys(userCart).length}</CartCounter>
-        )}
-      </CartLogo>
+      <CheckoutDiv>
+        <CheckoutLink to="/checkout">
+          <span>CHECKOUT</span>
+        </CheckoutLink>
+        <CartLogo to="checkout">
+          <img src={cartIcon} alt="cart icon"></img>
+          {Object.keys(userCart).length > 0 && (
+            <CartCounter>{Object.keys(userCart).length}</CartCounter>
+          )}
+        </CartLogo>
+      </CheckoutDiv>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  /* position: fixed; */
   height: ${MARGINS.navTop};
   width: 100%;
   border-bottom: 2px solid black;
@@ -46,6 +50,26 @@ const HomeLogo = styled(NavLink)`
     font-size: 32px;
     font-weight: 800;
     color: black;
+  }
+`;
+
+const CheckoutDiv = styled.div`
+  height: 100%;
+  width: 200px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 13px;
+`;
+
+const CheckoutLink = styled(NavLink)`
+  padding-right: 23px;
+  text-decoration: none;
+  color: black;
+  span {
+    font-weight: 600;
+    font-size: 14;
   }
 `;
 
