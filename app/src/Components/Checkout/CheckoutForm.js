@@ -1,11 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import styled from "styled-components";
 
 const CheckoutForm = () => {
+  const history = useHistory();
+
+  const handleSubmit = () => {
+    history.push(`/confirmation`);
+  };
+
   return (
     <Wrapper>
-      <FilloutForm>
+      <FilloutForm onSubmit={handleSubmit}>
         <span>Personal Information</span>
         <div>
           <label>First Name</label>

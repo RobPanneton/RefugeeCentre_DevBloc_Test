@@ -8,6 +8,7 @@ import HomePage from "./Components/HomePage/HomePage";
 import NavBar from "./Components/NavBar/NavBar";
 import Shop from "./Components/Shop/Shop";
 import Checkout from "./Components/Checkout/Checkout";
+import ConfirmationPage from "./Components/Confirmation/ConfirmationPage";
 
 import { populateInventory } from "./Redux/actions";
 
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/checkout">
             <Checkout />
+          </Route>
+          <Route path="/confirmation">
+            <ConfirmationPage />
           </Route>
         </Switch>
       </Wrapper>
